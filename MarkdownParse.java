@@ -1,5 +1,7 @@
 
 // File reading code from https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
+//File reading code into string from: https://stackoverflow.com/questions/12857242/java-create-string-array-from-text-file/56287760
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,7 +16,7 @@ public class MarkdownParse {
         for (String markdown : markdownStrings) {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
                 toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
-                }
+            }
         }
         return toReturn;
     }
