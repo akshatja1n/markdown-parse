@@ -1,16 +1,18 @@
 
 // File reading code from https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
-//File reading code into string from: https://stackoverflow.com/questions/12857242/java-create-string-array-from-text-file/56287760
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MarkdownParse {
-    public static ArrayList<String> getLinks(List<String> markdownStrings) {
+    public static ArrayList<String> getLinks(String markdownString) {
+
+        String[] markdownStrings = markdownString.split("\n");
+
         ArrayList<String> toReturn = new ArrayList<>();
+        
         // find the next [, then find the ], then find the (, then take up to
         // the next )
         for (String markdown : markdownStrings) {
@@ -23,13 +25,14 @@ public class MarkdownParse {
 
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of(args[0]);
-        List<String> lines = Files.readAllLines(fileName);
-        ArrayList<String> links = getLinks(lines);
+        String contents = Files.readString(fileName);
+        ArrayList<String> links = getLinks(contents);
         System.out.println(links);
     }
 }
 
 /*
+ * Original code
  * // File reading code from
  * https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
  * import java.io.IOException;
