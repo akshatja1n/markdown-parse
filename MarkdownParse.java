@@ -13,8 +13,6 @@ public class MarkdownParse {
 
         ArrayList<String> toReturn = new ArrayList<>();
         
-        // find the next [, then find the ], then find the (, then take up to
-        // the next )
         for (String markdown : markdownStrings) {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
                 toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
