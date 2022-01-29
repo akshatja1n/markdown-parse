@@ -15,8 +15,10 @@ public class MarkdownParse {
 
         for (String markdown : markdownStrings) {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
-                if (!markdown.substring(markdown.indexOf("[") + 1, markdown.indexOf("]")).equals("Image")) {
-                    toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
+                if (markdown.indexOf("[") < markdown.indexOf("]")) {
+                    if (!markdown.substring(markdown.indexOf("[") + 1, markdown.indexOf("]")).equals("Image")) {
+                        toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
+                    }
                 }
             }
         }
