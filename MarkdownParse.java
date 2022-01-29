@@ -13,9 +13,16 @@ public class MarkdownParse {
 
         ArrayList<String> toReturn = new ArrayList<>();
 
+        //Checks each line of the file for three things
+        /**
+         * Whether the string contains [, ], (, )
+         * Whether [ comes before ] which comes before ( which comes before }
+         * Whether the text between [ ] is NOT Image
+         */
         for (String markdown : markdownStrings) {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
-                if (markdown.indexOf("[") < markdown.indexOf("]")) {
+                if ((markdown.indexOf("[") < markdown.indexOf("]")) && (markdown.indexOf("]") < markdown
+                        .indexOf("(")) && (markdown.indexOf("(") < markdown.indexOf(")"))) {
                     if (!markdown.substring(markdown.indexOf("[") + 1, markdown.indexOf("]")).equals("Image")) {
                         toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
                     }
