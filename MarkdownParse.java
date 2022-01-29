@@ -12,10 +12,12 @@ public class MarkdownParse {
         String[] markdownStrings = markdownString.split("\n");
 
         ArrayList<String> toReturn = new ArrayList<>();
-        
+
         for (String markdown : markdownStrings) {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
-                toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
+                if (!markdown.substring(markdown.indexOf("[") + 1, markdown.indexOf("]")).equals("Image")) {
+                    toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
+                }
             }
         }
         return toReturn;
