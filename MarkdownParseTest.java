@@ -133,5 +133,14 @@ public class MarkdownParseTest {
         assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
     }
 
+    @Test
+    public void testBreaking6() throws IOException {
+        String fileToTest = "breaking-test6.md";
+
+        List<String> expected = List.of("this.html");
+
+        assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
+    }
+
     
 }
