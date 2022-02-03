@@ -17,13 +17,13 @@ public class MarkdownParse {
         /**
          * Whether the string contains [, ], (, )
          * Whether [ comes before ] which comes before ( which comes before }
-         * Whether the text between [ ] is NOT Image
+         * Whether the character
          */
         for (String markdown : markdownStrings) {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
                 if ((markdown.indexOf("[") < markdown.indexOf("]")) && (markdown.indexOf("]") < markdown
                         .indexOf("(")) && (markdown.indexOf("(") < markdown.indexOf(")"))) {
-                    if (!markdown.substring(markdown.indexOf("[") + 1, markdown.indexOf("]")).equals("Image")) {
+                    if (!(markdown.indexOf("[") > 0 && markdown.substring(0,1).equals("!"))) {
                         toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
                     }
                 }

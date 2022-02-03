@@ -1,3 +1,3 @@
 # Title
 
-[Image](this.html)
+![Image](this.html)

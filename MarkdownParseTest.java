@@ -63,7 +63,7 @@ public class MarkdownParseTest {
     public void testFile6() throws IOException {
         String fileToTest = "test-file6.md";
 
-        List<String> expected = List.of("page.com");
+        List<String> expected = List.of();
 
         assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
     }
@@ -137,7 +137,7 @@ public class MarkdownParseTest {
     public void testBreaking6() throws IOException {
         String fileToTest = "breaking-test6.md";
 
-        List<String> expected = List.of("this.html");
+        List<String> expected = List.of();
 
         assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
     }
