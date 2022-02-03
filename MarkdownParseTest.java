@@ -128,8 +128,10 @@ public class MarkdownParseTest {
     public void testBreaking5() throws IOException {
         String fileToTest = "breaking-test5.md";
 
-        List<String> expected = List.of();
+        List<String> expected = List.of("failing.html");
 
         assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
     }
+
+
 }
