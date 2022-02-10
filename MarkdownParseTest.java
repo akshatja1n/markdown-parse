@@ -8,8 +8,8 @@ import java.util.*;
 
 public class MarkdownParseTest {
     public String readFile(String fileName) throws IOException {
-        Path filePath = Path.of(fileName);
-        String contents = Files.readString(filePath);
+        Path filePath1 = Path.of(fileName);
+        String contents = Files.readString(filePath1);
 
         return contents;
     }

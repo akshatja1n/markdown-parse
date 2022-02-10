@@ -11,9 +11,9 @@ public class MarkdownParse {
 
         String[] markdownStrings = markdownString.split("\n");
 
-        ArrayList<String> toReturn = new ArrayList<>();
+        ArrayList<String> toReturn1 = new ArrayList<>();
 
-        //Checks each line of the file for three things
+        // Checks each line of the file for three things
         /**
          * Whether the string contains [, ], (, )
          * Whether [ comes before ] which comes before ( which comes before }
@@ -23,13 +23,13 @@ public class MarkdownParse {
             if (markdown.contains("[") && markdown.contains("]") && markdown.contains("(") && markdown.contains(")")) {
                 if ((markdown.indexOf("[") < markdown.indexOf("]")) && (markdown.indexOf("]") < markdown
                         .indexOf("(")) && (markdown.indexOf("(") < markdown.indexOf(")"))) {
-                    if (!(markdown.indexOf("[") > 0 && markdown.substring(0,1).equals("!"))) {
-                        toReturn.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
+                    if (!(markdown.indexOf("[") > 0 && markdown.substring(0, 1).equals("!"))) {
+                        toReturn1.add(markdown.substring(markdown.indexOf("(") + 1, markdown.indexOf(")")));
                     }
                 }
             }
         }
-        return toReturn;
+        return toReturn1;
     }
 
     public static void main(String[] args) throws IOException {
