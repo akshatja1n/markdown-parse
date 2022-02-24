@@ -142,5 +142,32 @@ public class MarkdownParseTest {
         assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
     }
 
+    @Test
+    public void testSnippet1() throws IOException {
+        String fileToTest = "lab-snippet1.md";
+
+        List<String> expected = List.of("`google.com", "google.com", "ucsd.edu");
+
+        assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
+    }
+
+    @Test
+    public void testSnippet2() throws IOException {
+        String fileToTest = "lab-snippet2.md";
+
+        List<String> expected = List.of("a.com", "a.com(())", "example.com");
+
+        assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
+    }
+
+    @Test
+    public void testSnippet3() throws IOException {
+        String fileToTest = "lab-snippet3.md";
+
+        List<String> expected = List.of("https://ucsd-cse15l-w22.github.io/");
+
+        assertEquals("Check " + fileToTest, expected, MarkdownParse.getLinks(readFile(fileToTest)));
+    }
+
     
 }
